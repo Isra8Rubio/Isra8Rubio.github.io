@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://logowik.com/content/uploads/images/adobe-portfolio8664.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Pagina Israel</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <div class="contenido">
+            <h1>Israel <span>Rubio</span></h1>
+            <nav class="no-responsive">
+                <a href="#inicio">Inicio</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#carta">Carta presentación</a>
+            </nav>
+        </div>
+    </header>
+
+    <!--Audio-->
+    <audio id="audio" src="utils/notalone.mp3" loop type="audio/mpeg"></audio>
+        <button class="audiobtn" id="playButton">🔊</button>
+        <button class="audiobtn" id="pauseButton" style="display: none;">🔈</button>
+    <script>
+        var audio = document.getElementById("audio");
+        var playButton = document.getElementById("playButton");
+        var pauseButton = document.getElementById("pauseButton");
+    
+        playButton.addEventListener("click", function() {
+            audio.play();
+            playButton.style.display = "none";
+            pauseButton.style.display = "inline-block";
+        });
+    
+        pauseButton.addEventListener("click", function() {
+            audio.pause();
+            playButton.style.display = "inline-block";
+            pauseButton.style.display = "none";
+        });
+    </script>
+
+    <!--Idioma-->
+    <div id="idioma">
+        <span class="es">ES</span>
+        <input type="checkbox" class="check">
+        <span class="en">UK</span>
+        <script src="js/idioma.js"></script>
+    </div>
+
+    <!-- seccion inicio -->
+    <section id="inicio">
+        <div class="hero">
+        <div class="text">
+            <h2 style="color:#1cb698;">Soy</h2><h2 style="color: white;">Israel Rubio Payán</h2>
+        <p>Bienvenido a mi página principal, donde podrás conocerme un poco más, ver mis progesos, mis trabajos y la evolución diaria.</p>
+        <button class="btn"><a href="documentos/CurriculumIsraelRubio.pdf" target="_blank" download="Curriculum">
+            Descargar CV</button></a>
+        </div>
+        <img src="utils/yo.jpg" width="300px" height="425px">
+        </div>
+    </section>
+
+    <!-- seccion portfolio -->
+    <section id="portfolio">
+        <h3 class="titulo">Portfolio</h3>
+        <hr>
+        <div class="indicador">
+            <a href="#inicio" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#portfolio" class="selector pintado"></a>
+            <div class="linea"></div>
+            <a href="#curriculum" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#carta" class="selector"></a>
+        </div>
+        <div class="fila">
+            <div class="col">
+                <a href="https://github.com/Isra8Rubio/Lenguaje_Marcas/tree/main/Segundo%20trimestre/Inicio%20CSS/Propiedades%20CSS%205%20y%206">
+                <i class="fa-solid fa-object-group"></i></a>
+                <h3>Lenguaje de marcas</h3>
+                <p>Propiedades CSS</p>
+                <p></p>
+            </div>
+            <div class="col">
+                <a href="https://github.com/Isra8Rubio/Base_De_Datos/blob/main/Primer%20Trimestre/Trabajo_grupo3.zip">
+                <i class="fa-solid fa-database"></i></a>
+                <h3>Base de datos</h3>
+                <p>Entidades y modelos relacionales</p>
+                <p></p>
+            </div><div class="col">
+                <a href="https://github.com/Isra8Rubio/Entorno_Desarrollo/tree/main/EseplabJV/codigos/Eseplab">
+                <i class="fa-solid fa-object-group"></i></a>
+                <h3>Entornos de desarrollo</h3>
+                <p>Aplicación ESEPLAB</p>
+                <p>Codigo QR</p>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="col">
+                <a href="https://github.com/Isra8Rubio/Sistemas_Informaticos" target="_blank"><i class="fa-brands fa-globe"></i></a>
+                <h3>Sistemas informaticos</h3>
+                <p>Curso completo actual</p>
+            </div>
+            <div class="col">
+                <a href="https://github.com/Isra8Rubio/Israel_Rubio_DAM1/blob/main/Primer%20Trimestre/Tema%204/Codigos/Ahorcado/src/Ahorcado.java">
+                <i class="fa-brands fa-github"></i></a>
+                <h3>Programación</h3>
+                <p>Ahorcado.</p>
+                <p>Con temática Final Fantasy.</p>
+            </div>
+    </section>
+
+    <!-- sección curriculum -->
+    <section id="curriculum" class="curriculum">
+        <div class="contenido-seccion">
+        <h3 class="titulo">Curriculum</h3>
+        <hr>
+        <div class="indicador">
+            <a href="#inicio" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#portfolio" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#curriculum" class="selector pintado"></a>
+            <div class="linea"></div>
+            <a href="#carta" class="selector"></a>
+        </div>
+        <div class="fila">
+            <div class="col der">
+                <h3>Datos Personales</h3>
+                <div class="item izq">
+                    <h4></h4>
+                    <span class="casa">📱659006578</span>
+                    <span class="fecha">📧Isra-Rubio@hotmail.com</span>
+                    <p>Calle del cerro 34<br>28979 Serranillos del Valle</p>
+                    <div class="conectorizq">
+                        <div class="circuloizq"></div>
+                    </div>
+                </div>
+                <h3>Educación</h3>
+                <div class="item izq">
+                    <h4>F.P.S. DAM</h4>
+                    <span class="casa">CES Juan Pablo II</span>
+                    <span class="fecha">2023 - Actualmente</span>
+                    <p></p>
+                    <div class="conectorizq">
+                        <div class="circuloizq"></div>
+                    </div>
+                </div><br><br>
+                <div class="item izq">
+                    <h4>F.P. ESI</h4>
+                    <span class="casa">IES La Arboleda</span>
+                    <span class="fecha">2008 - 2010</span>
+                    <p></p>
+                    <div class="conectorizq">
+                        <div class="circuloizq"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col der">
+                <h3>Próximos Objetivos</h3>
+                <div class="item der">
+                    <h4>Máster BigDATA</h4>
+                    <span class="casa">Titulación oficial Inglés</span><br>
+                    <h4>Curso GitHub</h4>
+                    <div class="conectorder">
+                        <div class="circuloder"></div>
+                    </div>
+                </div>
+                <h3>Experiencia laboral</h3>
+                <div class="item der">
+                    <h4>Gerente adjunto</h4>
+                    <span class="casa"><a href="https://colavoro.com/" target="_blank">Colavoro S.L.</a></span>
+                    <span class="fecha">2010 - 2023</span>
+                    <p>C.E. Adequa</p>
+                    <div class="conectorder">
+                        <div class="circuloder"></div>
+                    </div>
+                </div>
+                <div class="item der">
+                    <h4>Parques Reunidos</h4>
+                    <span class="casa">Parque de atracciones</span>
+                    <span class="casa">Aquópolis</span>
+                    <span class="fecha">2007 - 2008</span>
+                    <p>Madrid</p>
+                    <div class="conectorder">
+                        <div class="circuloder"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- sección carta -->
+    <section id="carta">
+        <h3 class="titulo">Carta Presentación</h3>
+        <hr>
+        <div class="indicador">
+            <a href="#inicio" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#portfolio" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#curriculum" class="selector"></a>
+            <div class="linea"></div>
+            <a href="#carta" class="selector pintado"></a>
+        </div>
+        <div class="fila">
+            <div class="col">
+                <h3>Marzo de 2024</h3>
+                <p><br>
+                    Estimado/a lector/a,<br><br>
+                    Soy estudiante del CES Juan Pablo II cursando actualmente el ciclo F.P. superior Desarrollo Aplicaiones Multiplataforma.<br><br>
+                    Soy un profesional comprometido con el trabajo bien hecho. Incansable. 
+                    Dispuesto a sumergirme en nuevos proyectos y aportar mi entusiasmo contagioso al equipo.<br><br>
+                    Creo firmemente en el valor del entusiasmo contagioso como motor de la productividad y el éxito del equipo.
+                    Es por ello, que estoy convencido de que puedo aportar no solo mis habilidades técnicas, sino también mi pasión y compromiso.<br><br>
+                    Mi objetivo es trabajar de manera colaborativa para alcanzar los objetivos planteados y superar las expectativas.</p>
+            </div>
+    </section>
+    <footer>
+        <p>2024</p>
+    </footer>
+</body>
+</html>

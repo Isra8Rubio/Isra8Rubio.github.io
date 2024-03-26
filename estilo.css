@@ -1,0 +1,463 @@
+   
+   /* Establece los márgenes y el relleno a 0 y define el modelo de caja como border-box para todos los elementos */
+    *{
+        margin: 0; /* Margen cero */
+        padding: 0; /* Relleno cero */
+        box-sizing: border-box; /* Incluye el borde en el modelo de caja */
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Define la fuente predeterminada */
+    }
+    *::-webkit-scrollbar{
+        width: 12px;
+        background: color #1e2326;;
+        border-radius: 1px;
+    }
+    *::-webkit-scrollbar-thumb{
+        background-color: transparent;
+        border: 1px solid #1cb698;
+        border-radius: 8px;
+    }
+    *::-webkit-scrollbar-thumb:hover{
+        border-width: 2px;
+    }
+    
+    /* Establece el comportamiento de desplazamiento suave en el documento */
+    html{
+        scroll-behavior: smooth; /* Desplazamiento suave */
+    }
+    
+    /* Estilos generales para el cuerpo del documento */
+    body{
+        background-color: #1e2326; /* Color de fondo */
+        color: white; /* Color de texto */
+        
+    }
+    
+    #idioma{
+    position: fixed;
+    z-index: 99;
+    right: 0;
+    top: 45px;
+    }
+    .en{
+        color: #1cb698;
+        font-size: 16px;
+        background-size:cover;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAACECAMAAADMWbUpAAAANlBMVEX////PFCsAJH310NX29/oIK4Hd4u7X3etMZaREXqCAkr4GKYBvg7azvtgiQY4cPIuir9Duq7O9TiqGAAACr0lEQVR4nO2dbVMCMQyEq4AvKCr//886OsNUB3o0yS5cdrKfIb2n7B29pk1bG2m73z0GdAqzeRhqc/pMpJ239+0QYUlPL+uHe312of3o8LFuuM8vN1qLePMGcF5Hdnm9yYcLOLLL5002XMyRXS5vcuHijuxyeJMKB3Fkl9mbRDiUI7us3qTBIR3ZZfMmCw7syC6LNzlwHwcSWjN5kwHHcWTXtDcJcDRHdk16Ew7neUbaTTznTTDcbm935KF5fuwZb2LhfBfZfLfpdW8i4RyO/LVXi3z5NnD+zm+Rn/0mcIFLOwWGexMEFzJVw4QhwQW7/G9gqDcRcNEL+hcY6c04XNxKDR0QBYfo6LPAKG8G4SCXcR4Y5M0QHMhAl3oNEjoAB7v1L9/MAFP44XAP7cGTKt55Xjjk3+3wPybaiA8OO1BaGPrE7OGCAw9xl8Z1oW50wMFfTpZH5IHmzHCE18prL4puo1jhGBMCV9+CvR1qg2O8Lk/AeRu2wHEmOqbgfJaxwHGmqCbhIlO9M3BWzU58z872utNGBLjplMV8EsI5mQ2HMySbDBkWnzfBcKY0oSk35vEmFs6W4DWmbO3eRMJZU/PW+GYxnparUcFlVcFlVcFl1V3hNmQdx3BHdttt3HZ+FVxWFVxWFVxWFVxWFVxWFVxWFVxWFVxWFVxWFVxWFVxWFVxWacOxp7TvOp1Oz0WM4SrLs2oVXFYVXFYVHEvSC9ssHxZekqi8mFR4GbDwAm7lpffCmyaEt7sob1QS3mImvDlQeVun8IZc4a3UypvghcsXCBeeUC4ZIlzsRbhMj3KBJeHSWMJFzZTL0QkXEhQuAalcvFO57Kp0wVz7VxKVOjZKuEi1cnlx4cLwwiX9lQ9jED5GQ/gAFOWja4QPHRI+Lkr5oC/hI9qED9cTOBbxG6utdnPhxy4bAAAAAElFTkSuQmCC');
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        
+    }
+    .es{
+        font-size: 16px;
+        background-size:cover;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATUAAACjCAMAAADciXncAAACRlBMVEXnBBj+xAD/wwDmaBLmAxj/ygPoChzrAB7/yArhVwX////8xQD/xgD8wwD8////7h31zBrlHQ7eXB7poRfljSTnABL2wQDiQRb/3Rv/9BztuQDvvij/FR/qLBX/6hXx2AXotg//ESbZmiD/vRDZAAnrSRL/9PfcqxXow0rr6+ry57////jZXFjjAAD2gR/2vAPkrAPdogXTrSTMoyS7lAujjEGEazGTiFb4xx/ltyrMnR7bskWliyrZqy3luj3PohzAkyPHnyv3oyD4kB/ThBjNbSj3vjbGYB33qxv2mhnmeR3GQg/sjjPcuS7KTwzeaRvve0HVNRveZinvnzDkUSLlcC/mrSvegiy3SgzYRD/gQjb0iTLMPSHhO0P/qTbTbxvzbC7aIwDbVyzRKCfuiEbBdBPekS6wqzKDoEG7qyWcpjr8qBfxey7wVx3abBHyljH+3cz06tXnz4nq26+qiG3k4NDi09fix8/VkaTTgIO/g2iEcU/Hl6be1b3WxJzJrbfv1uKyjo2ldnrScJH/krXrkKLz6b2Liji5dYfkv8/oycTZkWkAT22BgFbQY0zXoXPaqJ45Z2Tln7nvtbvdeVfLZVTPgEjpakGWmFUKSZBsd2irKUdTQ2/Zok27OzejKkNOXmpFc45qP2kcXY1EUm7Xb3BefmB2iViGinEAV6k5a403Rofknp5fQnx6llLt3nLs877LrpiTo8WSnKOPpdKtoXHs3UC1XkxvhqqMpejxnaBxiKbBpkd1fX7hzX22zM9VkYeJopoBV5zmAAAN4ElEQVR4nO2di1cTVxrAk8lryJ2hvCbpZibthCSMiCQhWdcJCAhBGpBH0wSopkIg9uGSoMgCan11BW1du221L7VrW1vb2sfuVm237drXf7bfnYBHe7rnMNcHOtyfSQyP8cz8zne/774mmkwU3dhX+wQeSqyrfQIPJdQaCdQaCdQaCbQakECtkUCtkUDzGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGgnUGglWk4OiH1MZRT8mlqIfk5min7tmjWFKzzUBjTUS7p41Dh48f9f+uQeau2YNcWw4jNWtBe7IGkKQypaTGeuJRMLIzN/6ozs9uweVO7CGpSD8BrdL3sw1eTyRkisEzvDTsO31TmINBCG09A4xSI3GbEvhpYUZZ176qfEgtcabIaSwLXhyHH6yf9z4J4XHmQ074xG66dR4kMcaWOO0PhrDIVfYI6qxTZvaVVlUXSyv6YT2a9QmSmpN69TivMZxSI23xpo7Yi2bN7fEgNa4ijjEGbmcElvDD1aNtwGtze2KLEe3xOUtUVlW2jta8DfjKms2ahElbqGQ0NS2WDvE1pZW2cZBXlPi8Qhr41iX3NoRizXHYm2qUePtDqyprc2K7HK5lIgNsf7ORFdbvCYx6ec5W0SBb8tKrFU1aLARW+NQPCa7WDPPyHIyYXFXBrbGu58QKt2WRFKWeYZlXZFY3KDlgDyvqa1xF9NjCbp7u7cJkuQT+vrbRgSf5LAOqIPuoKWHcUVbXXf1ZB8YiGONF1vlpCUg+XyBvidBluSrUpSMT4J3u/oqQWKlJRlv9tzNc31wIM9rars4aAJZkqmmBluzp7q7U/bS1yb4WrL2itHw3TzXBwdSaxznirc+haU5Aun0YMaUGh19ajA96rVmnkqnA9iaY2iY5rXbgfGSrGQrvSbBPTry9Oiu7TsK2WdS2cKOndnRp2tG3ZJdsNYoBm2gd1ANEO/pHhvNbtiRS+0aF1ITgcCTQwHrhDcwnk3ldmzPjo51e3iDdtj0W0MwLucR7oix4Wdr3PlUILVrIjO0a+vI4NDI2MjQxMSuVGBHPlPzbBjGqQhPgyDGYMN4vdZABHRjUan3isK1AxO7xp7rqh1WmhQ5XR0fbmoaru16bmzXxGBtmENmnufxWBUP4xHm7l/AqqDbmpm1eXgzixCON+jJNtUq/eLzL+yuELufeKI7ru5+4c+iEh+ujbjwKJRneJsZecwM4hkDLWHptYb8yUQiMZnUDIAJaKXdYrg/FhcjkdHRiCLHd0dVUX7WgxAHscbZmOQkHJD02xAHmg1SU/Va87tzhcGxwvgkWMCTQRxqkoc7+wq5YtDtdQeDxVwh2zkcGcZz4wyeFpkcz45NZS1BP05ya7WF8qGpdHV17xRIYCBPwXhTjowMpAJWk6BtGxGs46mBkYgMRhkOIRvnt/RWV6enQryNW7stlPNXd0111fqhLCL/EsnO0T192Ww2NNJb09VVm66OyJ4SUA2QnB6Z6qoO48k2w0yJ67UW9rjC/nDY42FYf5X3dlJ7p29nH1RQDz7AD4dBY8YlwRDotebCM2ousAadsCAes/t8gkPwaQTqyp1OJ37WN2h/z7jMvEc7QJXDkNUMUgsIaqiiyIDighQXlDBCLp2txG/AWslZecNfXpx11tWDNRiuKnE5IiuKtrBsXqMtlIs0t7e3x/ASnmbNnqkaaH5iosqrWSuvn5urn5/ff+Dgi7OH5nGsmXklBge0y7xRjGF0x5o4Mz19+Egbu2TNW5Pels701XqhtUKsHX35WMNLfz2+sDg9v/8YWIOy2Xbk8PTsjIjbp0Gymn5rjHgC0tbcOryMjPOadWxkW+e2sa5xSbP20pkzx+qOLiwcr58/5CzHscatm613Ok+I2sH34AJWBd2jd3E9WJttW7Y2Fhdr1VpFfM6qWXPOH188vriwsH/uaJ1WDZasrZe1pfp7cQWrAaG15VhzdEVj7Uq0PVqrWYNaMLd4/Pji4lHnPHwx44JcVrIm8mvb2olbrUmDTVEF/8GT4LgaHDp2ZgHCrd45N49jjVmOtZI1o2hbqTUGxuIs3oawFGssx2rVwN18MhaNnoxlSnlt7uX9h+ZfWVh4xVl3CFtjWRasNYA1iDoerTVrvLa/D8x1z5z6+uDfRnp6Ov1un09ybzp9Unn+9KvPlHoedfNzTmfd2cWFM4decTbMdCYsVYN/f/O11490w9jKzLMG6eeu1BrCo3Ub01nmTk+lg3ssPRar1QHxldr0xmal441NO+B9Y52zHDJb3f6FxYXFOXh/NmDNhtLbsl3JRGoqwaA110JxVkJ+S0CqHC3b05sIWbKNPrwQ5a7dHZWVDq2FWmFUAOVg7uUzZxbO4FHC2UapWN1XVRhTe0J7rEG/7V5eyf1k5dUAGlcvDDgbx9558823JsqCXqsJOrlVtdHm3R3t7YNeyWE/cBYK56H9+8+8cnwRioHz7HjQUrP14IGDbw/1ZiVrCJr4PbyU+8jKrUED7Qn4Au/sbcDVwMaGk5DXqpqgFLzxbns0OmTK78zn83UNcy/PzzuPYmsNM/5SNYAaOhTwVU7aOIM0UR15Ddn8GYcjdawcrLUwLMNADa1qamr+7Nz5juH0+IX3rlx578J26H2UQyldhE6ucybMmv3/mIVv7A347FVQDwwyFl1xrOEduBBsQv4UHlFdLPMj3PPwZjKZi+9fzGRSFz/48NyVNz7OX9bmPY4erYdqAGMDv3vDHMTaKbsplbQZpILqsobXpJK9A3sh1k5tr5xkebcgSYIgmeAp2C9tevejj06+eilf56xzQlGAWuqc4W2TwvZTIHDvWI9/Lc4U4evleDOPxwanLtpNPTZXJOn2dqYrM8lBayr/8fNtH37Qf+Nj+/YNN9mKuB67lH+9Dnq5eCrXMEOqlVsrLaDbutefutwoSeNJxvX4I27voxWVVY/UCKmdX3zy6eenPz1/Lm93OCD2BIfkk4q8LemGftyGszMia5zemo4RlXZzAST3PdsDkmSvSrLm8OOP3bRWlT935fRn5z+68oU9lytLFPFLEKyxrL+QF6TGVG/SzHGMURLbikdUCC8x+ROQyxrzl19vg9Bz3WItkbp05fP+lo+uXLJOFEL+wlCux58Tivj2jXV7D+xslBzjvUnEGWW3zEqtcVq0WUw+IX/gGJ7zYDj+FmvVgxe+OPfqJ+e+2OmtlLyhRimYDXmlIpjm1s3W1X25XfA5yiDUDBJsK6+hOLMFfd6hvaWZIoRubaHVj46//9XH7311oTJT8E7kvMWCe6goFFkzwr3ccuf6PrevaEZGuX9UhzWGZy2BnqWZImh7t1n7Q5U9cDFv9+YaQ0O5UOGpoleztjwreUJMBCzsvbyQ+4qOWUkoBolAaHkuF1LdbdbKrHv67EIu0+jOje1J5CobC9BC2Zuzkmoo0LP2rGl3yXL+gZ7ldYPfWitaH33MLvUkcrnQlheyuZwlWZSKSMtrONbUmqmwcW591DXngVAyKa4v/91YK9orHrNKPZ2WiWzHP58rZEL+MqEII092qYVGjDNPpKO/ZsZzsTbEiCdK1tBvWyhYs0uFnBDM9aUTOcFUCEL+h+OW1w1YZJx9f/pWWzi82vL/Yg1aqFAoNIYyUA1yRfsE9NfwdtQla3jjJG+U/bkrzmvLfQa89j57pI37HWsVdqmYyISCWs8jk/U6tKq5Dg6YnsHWkGF2Law41rT9BryZkztaWm50KNDrNVfcXkMr/vWWT/AncS9XEiz+kGRKsDAcUDrgiJhs1nacGoSVj955zZorIsqyLCr4Vp+KiltjTRD/fSoghSaL3spQozs0GfS5/TbO7NEOkCPaffBGmfTQE2sc9L5UD96O5vJ4WMQjOXWLtcC+6bnLghTMFULJUC5XKQUSPMuw2vY1OEBlzWtzryRvZsXNLW1RoGVzFGLPNfXMTWsDlw9/+fXey4LgLoYmy4pen7WXR7wrunkd/v3+js3xNbgvl8OfNcHZNl69eu3q9avXrl3/RoXum1pboWJrjbXfHmk4/J+Dh50/5AVJavQJVneCt/Fm9Zvr17QDrl69wTKG2YulawacsW387vvvr3+HXzapkKYQKzcNvP3ta5ePTNfXz3799Wx9/bEfNmzYsCPTm2Q5OELddP3777/7Dl7+e4Nbi9agCJq5Gz+eP//jNfyyUWV4PE/Jii0/nZhucP78yy+//vzrLz87G9bP7GtR+dLcrfruzQNusNza63lo0cbF+1W1/0a/qPbHefzxMPCAtiv2/7Rv34n1R2ZOzMzs+6lNu68F33MGmS/ar4rrdsNLNM7hVn7vruR+omfHAo+nPXB8Ia29Iu2DY+AvFs+9QZkURSiw+ANlcK3kcb3kOfy72t1q2C8yyFSunrV3fK+KNogvfXITp+2tgjdarmK0mzA47afazUCo9OkyMKbiIcaM0jSXoJ+QSAK1RgK1RgK1RgK1RgK1RgK1RoKJoeiGxhoJnAlRdGM22Sj6MVko+lnt/zjmocSx2ifwMGK1woOiFzu1RsJqR/tDCbVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGArVGgn21T+ChhFojgVojwW6yU/TzPyDrMmsEnwdhAAAAAElFTkSuQmCC');
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        
+    }
+    .check{
+        position: relative;
+        width: 32px;
+        cursor: pointer; 
+    }
+    .check::before{
+        content: '';
+        position: absolute;
+        width: 32px;
+        height: 15px;
+        background: #1cb698;
+        border-radius: 25px;
+    }
+    .check::after{
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 16px;
+        background-color:transparent;
+        border-radius: 25px;
+        transition: 0.25s;
+        border: 2px solid white;
+        box-sizing: border-box;
+    }
+    .check:checked::after{
+        left: 17px;
+        border: 2x solid #1cb698;
+    }
+    .check:checked::before{
+        background:#1cb698;
+    }
+
+
+    .audiobtn {
+        position: fixed;
+        right: 0;
+        top: 10px;
+        background-color:transparent;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: 0.3s;
+        z-index: 99;
+    }
+    .audiobtn:hover{
+        font-size:large
+    }
+    /* Estilos para el encabezado */
+    header{
+        background-color: #1e2331; /* Color de fondo */
+        padding: 20px; /* Relleno */
+        
+    }
+    
+    /* Estilos para el contenido dentro del encabezado */
+    header .contenido h1{
+        font-size: 20px; /* Tamaño de fuente */
+    }
+    
+    /* Estilos para una parte específica del contenido del encabezado */
+    header .contenido h1 span{
+        color: #1cb698; /* Color de texto */
+    }
+    
+    /* Estilos para el contenido dentro del encabezado */
+    header .contenido{
+        max-width: 900px; /* Ancho máximo */
+        margin: auto; /* Centrado horizontal */
+        display:flex; /* Mostrar como flexbox */
+        justify-content: space-between; /* Distribuir el espacio entre elementos */
+        align-items: center; /* Alinear verticalmente */
+        
+    }
+    
+    /* Estilos para los enlaces dentro del encabezado */
+    header .contenido nav a{
+        color: #fff; /* Color de texto */
+        text-decoration: none; /* Sin decoración de texto */
+        margin-left: 15px; /* Margen izquierdo */
+        transition: 0.8s; /* Transición con duración de 0.8 segundos */
+    }
+    
+    /* Estilos para los enlaces dentro del encabezado cuando se pasa el cursor sobre ellos */
+    header .contenido nav a:hover{
+        color: #1cb698; /* Color de texto al pasar el cursor */
+    }
+    
+    /* Estilos para las secciones del documento */
+    section{
+        max-width: 908px; /* Ancho máximo */
+        margin: auto; /* Centrado horizontal */
+        height: 88vh; /* Altura del viewport */
+        position: relative; /* Posición relativa */
+        padding: 0 30px; /* Relleno */
+    }
+    
+    /* Estilos para la sección de 'inicio' */
+    #inicio{
+        max-width: 100vw;
+        justify-content: center;
+        margin: auto;
+        display: flex; /* Mostrar como flexbox */
+        align-items:center;
+        background-image: url('utils/2.jpg');
+        box-shadow: 0px 19px #1cb698;
+        border-radius: 8px;
+        background-size:cover;
+        background-repeat: no-repeat;
+
+    }
+    .hero{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 100px;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 5px;
+    }
+
+    /* Estilos para el título de 'inicio' */
+    .text h2{
+        font-weight: normal; /* Peso de la fuente */
+        letter-spacing: 4px; /* Espaciado entre letras */
+        font-size: 35px; /* Tamaño de fuente */
+    }
+    /* Estilos para el párrafo de 'inicio' */
+    .text p{
+        width: 500px; /* Ancho */
+        font-size: 15px; /* Tamaño de fuente */
+        line-height: 24px; /* Altura de línea */
+        color: white; /* Color de texto */
+    }
+    .text a{
+        text-decoration: none;
+        color:#1e2326
+    }
+    .hero img{
+        border-radius: 20px;
+        border:ridge 2px #1cb698;
+        box-shadow: 1px 1px #1cb698;
+        transition-duration: 1s;
+    }
+    
+    /* Estilos para el botón */
+    .btn{
+        background-color: #1cb698; /* Color de fondo */
+        color: #fff; /* Color de texto */
+        border: none; /* Sin borde */
+        padding: 10px 25px; /* Relleno */
+        margin: auto;
+        margin-top: 8px;
+        width: fit-content; /* Ancho según el contenido */
+        text-align: center; /* Alinear texto al centro */
+        cursor:pointer;/* Cambiar el cursor al pasar */
+        border: 1px solid white;
+        border-radius: 2px;
+    }
+    
+    /* Estilos para la sección de 'portfolio' */
+    #portfolio{
+        display: flex; /* Mostrar como flexbox */
+        flex-direction: column; /* Dirección de los elementos */
+        justify-content: center; /* Alinear verticalmente */
+        margin-top: -90x; /* Margen superior */
+    }
+    /* Estilos para el título de 'portfolio' */
+    .titulo{
+        color:#1cb698; /* Color de texto */
+        font-size: 30px; /* Tamaño de fuente */
+        margin-bottom: 10px; /* Margen inferior */
+    }
+
+    /* Estilos para las filas en 'portfolio' */
+    #portfolio .fila{
+        display: flex; /* Mostrar como flexbox */
+        justify-content: space-between; /* Distribuir el espacio entre elementos */
+        margin-bottom: 30px; /* Margen inferior */
+    }
+    /* Estilos para las columnas en 'portfolio' */
+    #portfolio .fila .col{
+        width: 30%; /* Ancho */
+        border: 1px solid #1cb698; /* Borde */
+        border-radius: 20px; /* Radio del borde */
+        background-color: #252a2e; /* Color de fondo */
+        padding: 25px; /* Relleno */
+    }
+    /* Estilos para los íconos en 'portfolio' */
+    #portfolio .fila .col i{
+        color: #1cb698; /* Color del ícono */
+        font-size: 20px; /* Tamaño de fuente */
+        margin-bottom: 10px; /* Margen inferior */
+    }
+    /* Estilos para los títulos en 'portfolio' */
+    #portfolio .fila .col h3{
+        font-size: 15px; /* Tamaño de fuente */
+        margin-bottom: 10px; /* Margen inferior */
+    }
+    /* Estilos para los párrafos en 'portfolio' */
+    #portfolio .fila .col p{
+        font-size: 12px; /* Tamaño de fuente */
+        line-height: 20px; /* Altura de línea */
+    }
+    #portfolio .fila .col a{
+        text-decoration: none; /* Decoración del texto */
+        color: white; /* Color de texto */
+    }
+    
+    /* Estilos para la sección de 'curriculum' */
+    .curriculum{
+        background-color:#1e2326; /* Color de fondo */
+        color:white ; /* Color de texto */
+        padding: 50px 20px; /* Relleno */
+    }
+    /* Estilos para el contenido dentro de 'curriculum' */
+    .curriculum .contenido-seccion{
+        max-width: 1100px; /* Ancho máximo */
+        margin: auto; /* Centrado horizontal */
+    }
+    /* Estilos para los títulos en 'curriculum' */
+    .curriculum h2{
+        font-size: 48px; /* Tamaño de fuente */
+        text-align: center; /* Alinear texto al centro */
+        padding: 20px 0; /* Relleno */
+    }
+    /* Estilos para las filas en 'curriculum' */
+    .curriculum .fila{
+     display: flex; /* Mostrar como flexbox */
+        justify-content: space-between; 
+        /* Distribuir el espacio entre elementos */
+    }
+    /* Estilos para las columnas en 'curriculum' */
+    .curriculum .fila .col{
+        width: 49%; /* Ancho */
+        padding: 0 20px; /* Relleno */
+    }
+    /* Estilos para los títulos en 'curriculum' */
+    .curriculum .fila .col h3{
+        font-size: 25px; /* Tamaño de fuente */
+        margin-bottom: 10px; /* Margen inferior */
+    }
+    /* Estilos para la columna izquierda en 'curriculum' */
+    .curriculum .fila .izq{
+        border-right: 2px solid #252a2e; /* Borde derecho */
+    }
+    /* Estilos para la columna derecha en 'curriculum' */
+    .curriculum .fila .der{
+        border-left: 2px solid #252a2e; /* Borde izquierdo */
+    }
+    /* Estilos para los elementos en 'curriculum' */
+    .curriculum .fila .item{
+        padding: 25px; /* Relleno */
+        margin-bottom: 30px; /* Margen inferior */
+        background-color: #252a2e; /* Color de fondo */
+        position: relative; /* Posición relativa */
+    }
+    .curriculum .fila .item a{
+        text-decoration: none;
+        color: #1cb698;
+    }
+    /* Estilos para los títulos de los elementos en 'curriculum' */
+    .curriculum .fila .item h4{
+        font-size: 20px; /* Tamaño de fuente */
+        margin-bottom: 10px; /* Margen inferior */
+    }
+    /* Estilos para la clase 'casa' dentro de los elementos en 'curriculum' */
+    .curriculum .fila .item .casa{
+        color: #1cb698; /* Color de texto */
+        font-size: 22px; /* Tamaño de fuente */
+        font-weight: bold; /* Peso de la fuente */
+        display: block; /* Mostrar como bloque */
+    }
+    /* Estilos para las fechas dentro de los elementos en 'curriculum' */
+    .curriculum .fila .item .fecha{
+        display: block; /* Mostrar como bloque */
+        color: #1cb698; /* Color de texto */
+        margin-bottom: 10px; /* Margen inferior */
+    }
+    /* Estilos para los párrafos dentro de los elementos en 'curriculum' */
+    .curriculum .fila .item p{
+        line-height: 24px; /* Altura de línea */
+    }
+    /* Estilos para la columna izquierda en 'curriculum' */
+    .curriculum .fila .izq{
+        border-right: 2px solid #1cb698; /* Borde derecho */
+        margin-right: 5px; /* Margen derecho */
+    }
+    /* Estilos para la columna derecha en 'curriculum' */
+    .curriculum .fila .der{
+        border-left: 2px solid #1cb698; /* Borde izquierdo */
+        margin-left: 20px; /* Margen izquierdo */
+    }
+    /* Estilos para el conector izquierdo en 'curriculum' */
+    .curriculum .fila .item .conectorizq{
+        height: 2px; /* Altura */
+        background-color: #1cb698; /* Color de fondo */
+        width: 42px; /* Ancho */
+        position: absolute; /* Posición absoluta */
+        top: 50%; /* Desde la parte superior */
+        right: -42px; /* Desde la derecha */
+        z-index: 5; /* Índice z */
+    }
+    /* Estilos para el círculo del conector izquierdo en 'curriculum' */
+    .curriculum .fila .item .conectorizq .circuloizq{
+        display: block; /* Mostrar como bloque */
+        height: 10px; /* Altura */
+        width: 10px; /* Ancho */
+        border-radius: 50%; /* Radio del borde */
+        background-color: #1cb698; /* Color de fondo */
+        float: right; /* Flotar a la derecha */
+        position: relative; /* Posición relativa */
+        bottom: 4px; /* Desde la parte inferior */
+    }
+    /* Estilos para el conector derecho en 'curriculum' */
+    .curriculum .fila .item .conectorder{
+        height: 2px; /* Altura */
+        background-color: #1cb698; /* Color de fondo */
+        width: 37px; /* Ancho */
+        position: absolute; /* Posición absoluta */
+        top: 50%; /* Desde la parte superior */
+        left: -37px; /* Desde la izquierda */
+        z-index: 5; /* Índice z */
+    }
+    /* Estilos para el círculo del conector derecho en 'curriculum' */
+    .curriculum .fila .item .conectorder .circuloder{
+        display: block; /* Mostrar como bloque */
+        height: 10px; /* Altura */
+        width: 10px; /* Ancho */
+        border-radius: 50%; /* Radio del borde */
+        background-color: #1cb698; /* Color de fondo */
+        float: left; /* Flotar a la izquierda */
+        position: relative; /* Posición relativa */
+        bottom: 4px; /* Desde la parte inferior */
+    }
+    
+    /* Estilos para los títulos en 'carta' */
+    #carta .fila .col h3{
+        text-align: right; /* Alinear texto a la derecha */
+        color: #1cb698; /* Color de texto */
+    }
+    /* Estilos para las columnas en 'carta' */
+    #carta .fila .col{
+        width: 98%; /* Ancho */
+        border: 1px solid #1cb698; /* Borde */
+        text-align: justify; /* Alinear texto justificado */
+        border-radius: 20px; /* Radio del borde */
+        background-color: #252a2e; /* Color de fondo */
+        padding: 25px; /* Relleno */
+        transition:2s;/* Transición con duración de 2 segundos */
+    }
+    #carta .fila .col:hover{
+        background-color:#1e2331;/* Color de fondo */
+    }
+
+    /* Estilos para la línea separadora en todos los titulos con la etiqueta inferior hr */
+    hr{
+    width: 50px; /* Ancho */
+    height: 2px; /* Altura */
+    border: 2px solid #1cb698; /* Borde */
+    background-color: #1cb698; /* Color de fondo */
+    margin-bottom: 50px; /* Margen inferior */
+    }
+    
+    /* Estilos para el indicador */
+    .indicador{
+        position:absolute; /* Posición absoluta */
+        right: 0; /* Desde la derecha */
+        padding-right: 0; /* Relleno derecho */
+    }
+    /* Estilos para los selectores en el indicador */
+    .indicador .selector{
+        display: block; /* Mostrar como bloque */
+        width: 20px; /* Ancho */
+        height: 20px; /* Altura */
+        border-radius: 50%; /* Radio del borde */
+        border: 2px solid white; /* Borde */
+    }
+    /* Estilos para la línea en el indicador */
+    .indicador .linea{
+        width: 1px; /* Ancho */
+        margin: auto; /* Margen automático */
+        background-color: white; /* Color de fondo */
+        height: 30px; /* Altura */
+    }
+    /* Estilos para los elementos pintados */
+    .pintado{
+        background-color: #1cb698; /* Color de fondo */
+    }
+    
+    /* Estilos para la media queries */
+    @media screen and (max-width:600px){
+        section{
+            height: auto; /* Altura autom*/
+        }
+    }
+
+    /* Estilo para el pie de página*/
+    footer{
+    background-color: #1e2331;/* Color de fondo */
+    text-align: center;/* Alinear texto al centro */
+    padding: 20px;/* Relleno */
+    margin-top: 50px; /* Margen superior */
+    }
